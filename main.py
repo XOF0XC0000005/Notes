@@ -1,6 +1,7 @@
 import dataclasses
 import json
 import uuid
+from datetime import datetime
 
 @dataclasses.dataclass
 class Note:
@@ -30,3 +31,12 @@ class Handler:
         print(note)
         print(dataclasses.asdict(note))
         self.notes[str(uuid.uuid4())] = dataclasses.asdict(note)
+        print(self.notes)
+
+    def delete(self, id: str):
+        self.notes.pop(id)
+
+    def update(self, id, title, msg):
+        self.notes['id']['title'] = title if title else title
+        self.notes['id']['msg'] = msg if msg else msg
+        self.notes['id']['date'] = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")

@@ -45,8 +45,8 @@ class Handler:
         msg = input("Введите тело: ")
         
         try:
-            self.notes[id]['title'] = title if title is not None else ""
-            self.notes[id]['msg'] = msg if msg is not None else ""
+            self.notes[id]['title'] = title
+            self.notes[id]['msg'] = msg
             self.notes[id]['date'] = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         except KeyError:
             print("Заметка не найдена")
